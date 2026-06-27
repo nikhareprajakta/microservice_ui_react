@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function SideBar() {
   const [open, setOpen] = useState(false);
 
   const toggleDropdown = () => setOpen(!open);
 
+  
   return (
     <div className="relative inline-block text-left">
       <button
@@ -40,10 +42,18 @@ function SideBar() {
               Dashboard
             </a>
           </li>
-          <li>
-            <a href="#settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+          <li >
+            <NavLink 
+            onClick={() => toggleDropdown} 
+            to="/messageList" 
+            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
               Settings
-            </a>
+            </NavLink >
+          </li>
+          <li>
+           <NavLink to="/messageList" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+              Message List
+            </NavLink>
           </li>
           <li>
             <hr className="border-gray-200 my-1" />

@@ -69,6 +69,7 @@ const settingMenu = [
   { label: "Profile", path: "/profile" }
 ];
 
+
 const notificationMenu = [
   { label: "Email Notification", path: "/email" },
   { label: "SMS Notification", path: "/sms" }
@@ -128,6 +129,7 @@ const notificationMenu = [
   openMenu={openMenu}
   toggleMenu={toggleMenu} />):""}
               </li>
+             
             <li>
               {isAuthenticated ? (<DropdownMenu label={<FontAwesomeIcon icon={faSms}/>}  items={notificationMenu} menuKey="notification"
   openMenu={openMenu}

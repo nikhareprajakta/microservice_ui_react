@@ -105,7 +105,7 @@ export default function Login(){
               <div class="social-auth-links text-center mb-3 d-grid gap-2">
             <p>- OR -</p>
             <NavLink to="/register" class="btn btn-primary">
-              <i className="mt-6 text-center text-sm text-gray-600"></i> Sign in using Facebook
+              <i className="mt-6 text-center text-sm text-gray-600"></i> Register Here..
             </NavLink>
             <a href="#" class="btn btn-danger">
               <i className="mt-6 text-center text-sm text-gray-600"></i> Sign in using Google+
@@ -135,7 +135,7 @@ export async function loginAction({ request }) {
   };
 
   try {
-    const response = await apiClient.post("/etech/auth/login", loginData, {
+    const response = await apiClient.post("/auth/login", loginData, {
       headers: { "Content-Type": "application/json" }, // force JSON
     });
     console.log(response);
