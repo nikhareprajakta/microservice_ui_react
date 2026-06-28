@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import TopBar from "./components/frontLook/TopBar";
 import SideBar from "./components/frontLook/SideBar";
 import { Outlet } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuth } from "./components/context/auth-context";
 function App() {
@@ -18,7 +18,7 @@ function App() {
 
        <Outlet />
       <Footer />
-       <ToastContainer position="top-right" autoClose={3000} />
+       <ToastContainer position="top-right" autoClose={3000} transition={Bounce}/>
     </>
   );
 }

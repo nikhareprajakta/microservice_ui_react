@@ -31,6 +31,8 @@ const submit = useSubmit();
 
     if(userConfirmed){
     submit(formData, { method: "post" });
+    }else{
+      event.preventDefault();
     }
   };
     return(
@@ -54,7 +56,9 @@ const submit = useSubmit();
         </ul>
   </div>
   <div className="bg-white shadow-md border-2 rounded-lg p-4 col-span-8">
-        <Form ref={formRef} className="space-y-4" method="Post">
+        <Form ref={formRef} className="space-y-4" method="Post"
+        onSubmit={handleSubmit}
+        >
          
           <div>
             <label className="block text-sm font-medium text-gray-700">Name</label>
@@ -172,7 +176,6 @@ export async function contactAction({ request }) {
 
 export async function contactLoader({ request }) {
  
-
   try {
     const response = await apiClient.get("accounts/contact/contact_details");
     console.log(response.data);

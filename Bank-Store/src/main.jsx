@@ -14,6 +14,8 @@ import { AuthProvider } from "./components/context/auth-context.jsx";
 import { ToastContainer } from "react-toastify";
 import Register, { registerAction } from "./components/Register.jsx";
 import MessageList, {messageListLoader} from "./components/dashborad/MessageList.jsx";
+import ProductDetail from "./components/ProductDetail.jsx";
+import { CartProvider } from "./store/cart-context.jsx";
 const routerPaths=createRoutesFromElements(
   <Route path="/" element={<App/>} errorElement={<ErrorPage/>}>
     <Route index element={<Home/>} loader={homeLoader}/>
@@ -24,13 +26,17 @@ const routerPaths=createRoutesFromElements(
     <Route path="cart" element={<Cart/>}/>
    <Route path="register" element={<Register/>} action={registerAction}/>
    <Route path="messageList" element={<MessageList/>} loader={messageListLoader}/>
+   <Route path="/product/:productId" element={<ProductDetail/>} />
+   
   </Route>
 );
 const appRouter=createBrowserRouter(routerPaths)
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-     <RouterProvider router={appRouter}/>
+     <CartProvider>
+          <RouterProvider router={appRouter} />
+        </CartProvider>
      </AuthProvider>
      
   </React.StrictMode>,
